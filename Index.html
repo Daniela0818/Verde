@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Tienda de Plantas</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+  <header>
+    <h1>🌿 Mi Tienda de Plantas</h1>
+    <p>Las mejores plantas para tu hogar</p>
+  </header>
+
+ <nav class="nav-botones">
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+    <li><a href="mini.html">Mini juego</a></li>
+    <li><a href="#" onclick="cerrarSesion()">Cerrar sesión</a></li>
+
+<script>
+function cerrarSesion(){
+  localStorage.removeItem("sesion");
+  alert("Sesión cerrada.");
+  window.location.reload();
+}
+</script>
+
+  </ul>
+</nav>
+
+
+  <div class="contenedor">
+    <div class="plantas">
+      <div class="planta">
+        <img src="descargar.webp" alt="Cactus">
+        <h3>Cactus</h3>
+        <p>Perfecto para principiantes</p>
+        <div class="precio">$150</div>
+        <button onclick="window.location.href='cactus.html'">Comprar</button>
+      </div>
+
+      <div class="planta">
+        <img src="suculenta.webp" alt="Suculenta">
+        <h3>Suculenta</h3>
+        <p>Fácil de cuidar</p>
+        <div class="precio">$120</div>
+        <button onclick="window.location.href='suculenta.html'">Comprar</button>
+      </div>
+
+      <div class="planta">
+        <img src="helecho.webp" alt="Helecho">
+        <h3>Helecho</h3>
+        <p>Ideal para interiores</p>
+        <div class="precio">$200</div>
+        <button onclick="window.location.href='helecho.html'">Comprar</button>
+      </div>
+
+      <div class="planta">
+        <img src="rosa.webp" alt="Rosa">
+        <h3>Rosa</h3>
+        <p>Perfecta para adornar tu jardín</p>
+        <div class="precio">$200</div>
+        <button onclick="window.location.href='rosa.html'">Comprar</button>
+      </div>
+
+      <div class="planta">
+        <img src="orquidea.jpg" alt="Orquidea">
+        <h3>Orquídea</h3>
+        <p>Solo para conocedores</p>
+        <div class="precio">$250</div>
+        <button onclick="window.location.href='orquidea.html'">Comprar</button>
+      </div>
+
+      <div class="planta">
+        <img src="geranio.webp" alt="Geranio">
+        <h3>Geranio</h3>
+        <p>No necesita mucho espacio</p>
+        <div class="precio">$180</div>
+        <button onclick="window.location.href='geranio.html'">Comprar</button>
+      </div>
+
+      <div class="planta">
+        <img src="bugambilia.jpg" alt="Bugambilia">
+        <h3>Bugambilia</h3>
+        <p>Genial si quieres una enramada</p>
+        <div class="precio">$200</div>
+        <button onclick="window.location.href='bugambilia.html'">Comprar</button>
+      </div>
+
+      <div class="planta">
+        <img src="jacaranda.webp" alt="Jacaranda">
+        <h3>Jacaranda</h3>
+        <p>Ideal si tienes mucho espacio</p>
+        <div class="precio">$300</div>
+        <button onclick="window.location.href='jacaranda.html'">Comprar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Mi Tienda de Plantas | Creado 🌱</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Acceso</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+<div class="form-box">
+  <h2>Iniciar Sesión</h2>
+
+  <form id="loginForm">
+    <label>Correo:</label>
+    <input type="email" id="correo" required>
+
+    <label>Contraseña:</label>
+    <input type="password" id="pass" required>
+
+    <button type="submit" class="btn">Entrar</button>
+  </form>
+
+  <p>¿No tienes cuenta? <a href="registro.html">Regístrate</a></p>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const correo = document.getElementById("correo").value;
+    const pass = document.getElementById("pass").value;
+
+    const user = JSON.parse(localStorage.getItem("usuario"));
+
+    if(!user){
+        alert("No hay usuarios registrados.");
+        return;
+    }
+
+    if(correo === user.correo && pass === user.pass){
+        localStorage.setItem("sesion", "activa");
+        alert("✅ Bienvenido " + user.nombre);
+        window.location.href = "index.html";
+    } else {
+        alert("Datos incorrectos");
+    }
+});
+</script>
+
+</body>
+</html>

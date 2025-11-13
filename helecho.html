@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Helecho</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+  <header>
+    <h2>Estás a punto de comprar un helecho, selecciona lo que más te guste para completar tu compra</h2>
+    <h3>"Una planta, más oxígeno"</h3>
+  </header>
+
+  <div class="plantas">
+    <div class="planta">
+      <img src="helecho.webp" alt="Helecho">
+      <p>
+        Los helechos son plantas sin flores que se reproducen por esporas y se caracterizan por sus frondas verdes y elegantes. 
+        Algunos tipos importantes son <strong>Helecho espada</strong>, <strong>Cuerno de alce</strong>, <strong>Helecho de Boston</strong> y <strong>Arborescente</strong>. 
+        Prefieren lugares húmedos, sombra parcial y suelos ricos en materia orgánica.
+      </p>
+    </div>
+
+    <div class="plants">
+      <h2>Completemos tu compra</h2>
+      <form>
+        <label for="tamano">Tamaño</label>
+        <select id="tamano" required>
+          <option value="">Selecciona...</option>
+          <option>Chico</option>
+          <option>Mediano</option>
+          <option>Grande</option>
+        </select>
+
+        <br><br>
+
+        <label for="tipo">Tipo</label>
+        <select id="tipo" required>
+          <option value="">Selecciona...</option>
+          <option>Helecho espada</option>
+          <option>Cuerno de alce</option>
+          <option>Helecho de Boston</option>
+          <option>Arborescente</option>
+        </select>
+
+        <br><br>
+
+        <label for="cantidad">Cantidad</label>
+        <input type="number" id="cantidad" min="1" placeholder="Ej. 2" required>
+
+        <br><br>
+
+        <h2>Llenemos los datos de tu compra</h2>
+
+        <label for="tarjeta">Tarjeta</label>
+        <input type="password" id="tarjeta" placeholder="Número de tarjeta" required>
+
+        <br><br>
+
+        <label for="vigencia">Vigencia</label>
+        <input type="month" id="vigencia" required>
+
+        <br><br>
+
+        <label for="seguridad">Número de seguridad</label>
+        <input type="password" id="seguridad" maxlength="3" placeholder="CVV" required>
+
+        <br><br>
+
+        <button type="button" class="btn-comprar" onclick="comprar()">Comprar</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="card"><img src="helecho1.webp" alt="Helecho espada"><h4>Helecho espada</h4></div>
+      <div class="card"><img src="helecho2.webp" alt="Cuerno de alce"><h4>Cuerno de alce</h4></div>
+      <div class="card"><img src="helecho3.webp" alt="Helecho de Boston"><h4>Helecho de Boston</h4></div>
+      <div class="card"><img src="helecho4.webp" alt="Arborescente"><h4>Arborescente</h4></div>
+    </div>
+  </div>
+
+  <button onclick="window.location.href='index.html'" class="button cancelar">Cancelar</button>
+
+  <footer>
+    <p>© 2025 Mi Tienda de Plantas | Creado por Christian 🌱</p>
+  </footer>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % track.children.length;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }, 3000);
+  </script>
+   <script>
+function comprar() {
+  const sesion = localStorage.getItem("sesion");
+
+  if (sesion !== "activa") {
+    alert("Debes iniciar sesión para comprar.");
+    window.location.href = "login.html";
+    return;
+  }
+
+  alert(" Compra permitida. Puedes continuar.");
+  
+}
+</script>
+</body>
+</html>

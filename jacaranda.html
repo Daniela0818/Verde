@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jacaranda</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+  <header>
+    <h2>Estás a punto de comprar una jacaranda, selecciona la que más te guste para completar tu compra</h2>
+    <h3>"Una planta, más oxígeno"</h3>
+  </header>
+
+  <div class="plantas">
+    <div class="planta">
+      <img src="jacaranda.webp" alt="Jacaranda">
+      <p>
+        La jacaranda es un árbol ideal para espacios amplios y jardines grandes. 
+        Sus flores lilas y hojas verdes crean un espectáculo visual único. 
+        Prefiere suelos fértiles, exposición directa al sol y riego moderado durante la temporada seca.
+      </p>
+    </div>
+
+    <div class="plants">
+      <h2>Completemos tu compra</h2>
+      <form>
+        <label for="tamano">Tamaño</label>
+        <select name="tamano" id="tamano">
+          <option value="Chico">Chico</option>
+          <option value="Mediano">Mediano</option>
+          <option value="Grande">Grande</option>
+        </select>
+
+        <br><br>
+
+        <label for="tipo">Variedad</label>
+        <select name="tipo" id="tipo">
+          <option value="Jacaranda común">Jacaranda común</option>
+          <option value="Jacaranda mimosaefolia">Jacaranda mimosaefolia</option>
+        </select>
+
+        <br><br>
+
+        <label for="cantidad">Cantidad</label>
+        <input type="number" id="cantidad" name="cantidad" min="1" placeholder="Ej. 1">
+
+        <br><br>
+
+        <h2>Llenemos los datos de tu compra</h2>
+
+        <label for="tarjeta">Tarjeta</label>
+        <input type="password" id="tarjeta" name="tarjeta" placeholder="Número de tarjeta">
+
+        <br><br>
+
+        <label for="vigencia">Vigencia</label>
+        <input type="month" id="vigencia" name="vigencia">
+
+        <br><br>
+
+        <label for="seguridad">Número de seguridad</label>
+        <input type="password" id="seguridad" name="seguridad" maxlength="3" placeholder="CVV">
+
+        <br><br>
+
+        <button type="button" class="btn-comprar" onclick="comprar()">Comprar</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <div class="card"><img src="jacaranda1.webp" alt="Jacaranda común"><h4>Jacaranda común</h4></div>
+      <div class="card"><img src="jacaranda2.webp" alt="Jacaranda mimosaefolia"><h4>Jacaranda mimosaefolia</h4></div>
+    </div>
+  </div>
+
+  <button onclick="window.location.href='index.html'" class="button cancelar">Cancelar</button>
+   <script>
+function comprar() {
+  const sesion = localStorage.getItem("sesion");
+
+  if (sesion !== "activa") {
+    alert("Debes iniciar sesión para comprar.");
+    window.location.href = "login.html";
+    return;
+  }
+
+  alert(" Compra permitida. Puedes continuar.");
+  
+}
+</script>
+</body>
+</html>

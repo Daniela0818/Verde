@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rosa</title>
+  <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+  <header>
+    <h2>Estás a punto de comprar una rosa, selecciona la que más te agrade para completar tu compra</h2>
+    <h3>"Una planta, más oxígeno"</h3>
+  </header>
+
+  <div class="plantas">
+    <div class="planta">
+      <img src="rosa.webp" alt="Rosa">
+      <p>
+        La rosa es una de las flores más populares, perfecta para adornar tu jardín. 
+        Entre las variedades más comunes están la <strong>Rosa roja</strong>, elegante y clásica; 
+        la <strong>Rosa blanca</strong>, símbolo de pureza; y la <strong>Rosa amarilla</strong>, alegre y vibrante. 
+        Se adapta a interiores y exteriores, siempre con buena luz y riego moderado.
+      </p>
+    </div>
+
+    <div class="plants">
+      <h2>Completemos tu compra</h2>
+      <form>
+        <label for="tamano">Tamaño</label>
+        <select name="tamano" id="tamano">
+          <option value="Chico">Chico</option>
+          <option value="Mediano">Mediano</option>
+          <option value="Grande">Grande</option>
+        </select>
+
+        <br><br>
+
+        <label for="tipo">Variedad</label>
+        <select name="tipo" id="tipo">
+          <option value="Rosa roja">Rosa roja</option>
+          <option value="Rosa blanca">Rosa blanca</option>
+          <option value="Rosa amarilla">Rosa amarilla</option>
+        </select>
+
+        <br><br>
+
+        <label for="cantidad">Cantidad</label>
+        <input type="number" id="cantidad" name="cantidad" min="1" placeholder="Ej. 2">
+
+        <br><br>
+
+        <h2>Llenemos los datos de tu compra</h2>
+
+        <label for="tarjeta">Tarjeta</label>
+        <input type="password" id="tarjeta" name="tarjeta" placeholder="Número de tarjeta">
+
+        <br><br>
+
+        <label for="vigencia">Vigencia</label>
+        <input type="month" id="vigencia" name="vigencia">
+
+        <br><br>
+
+        <label for="seguridad">Número de seguridad</label>
+        <input type="password" id="seguridad" name="seguridad" maxlength="3" placeholder="CVV">
+
+        <br><br>
+
+        <button type="button" class="btn-comprar" onclick="comprar()">Comprar</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="carousel-container">
+    <div class="carousel-track">
+
+      <div class="card">
+        <img src="rosa1.webp" alt="Rosa roja">
+        <div class="card-content">
+          <h3>Rosa roja</h3>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="rosa2.webp" alt="Rosa blanca">
+        <div class="card-content">
+          <h3>Rosa blanca</h3>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="rosa3.webp" alt="Rosa amarilla">
+        <div class="card-content">
+          <h3>Rosa amarilla</h3>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <button onclick="window.location.href='index.html'" class="button cancelar">Cancelar</button>
+  <script>
+function comprar() {
+  const sesion = localStorage.getItem("sesion");
+
+  if (sesion !== "activa") {
+    alert("Debes iniciar sesión para comprar.");
+    window.location.href = "login.html";
+    return;
+  }
+
+  alert(" Compra permitida. Puedes continuar.");
+  
+}
+</script>
+</body>
+</html>

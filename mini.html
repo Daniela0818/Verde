@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jardín Virtual</title>
+  <link rel="stylesheet" href="style/style2.css">
+</head>
+<body>
+  <header>
+    <h1>🌿 Jardín Virtual</h1>
+    <p>Arrastra tus plantas a las macetas y haz que crezcan!</p>
+  </header>
+
+  <div class="plantas-disp">
+    <img src="suculenta1.webp" alt="Suculenta" class="planta" draggable="true" data-nombre="Suculenta">
+    <img src="cactus1.webp" alt="Cactus" class="planta" draggable="true" data-nombre="Cactus">
+    <img src="helecho1.webp" alt="Helecho" class="planta" draggable="true" data-nombre="Helecho">
+    <img src="rosa.webp" alt="Rosa" class="planta" draggable="true" data-nombre="Rosa">
+  </div>
+
+  <div class="jardin">
+    <div class="maceta" data-planta=""></div>
+    <div class="maceta" data-planta=""></div>
+    <div class="maceta" data-planta=""></div>
+  </div>
+
+  <div class="mensaje" id="mensaje"></div>
+
+  <script>
+    const plantas = document.querySelectorAll('.planta');
+    const macetas = document.querySelectorAll('.maceta');
+    const mensaje = document.getElementById('mensaje');
+
+    plantas.forEach(planta => {
+      planta.addEventListener('dragstart', e => {
+        e.dataTransfer.setData('text', planta.src);
+        e.dataTransfer.setData('nombre', planta.dataset.nombre);
+      });
+    });
+
+    macetas.forEach(maceta => {
+      maceta.addEventListener('dragover', e => e.preventDefault());
+
+      maceta.addEventListener('drop', e => {
+        e.preventDefault();
+        const src = e.dataTransfer.getData('text');
+        const nombre = e.dataTransfer.getData('nombre');
+
+        if (!maceta.dataset.planta) {
+          const nuevaPlanta = document.createElement('img');
+          nuevaPlanta.src = src;
+          nuevaPlanta.alt = nombre;
+          nuevaPlanta.classList.add('planta-maceta');
+          maceta.appendChild(nuevaPlanta);
+          maceta.dataset.planta = nombre;
+
+          // Animación de crecimiento
+          let scale = 0.5;
+          const crecer = setInterval(() => {
+            scale += 0.01;
+            nuevaPlanta.style.transform = `translateX(-50%) scale(${scale})`;
+            if (scale >= 1) clearInterval(crecer);
+          }, 20);
+
+          mensaje.textContent = `Has plantado un(a) ${nombre}! 🌱`;
+        } else {
+          mensaje.textContent = `Esta maceta ya tiene una planta!`;
+        }
+      });
+    });
+  </script>
+  <button onclick="window.location.href='index.html'">cancelar</button>
+</body>
+</html>
